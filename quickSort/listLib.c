@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 #include "listLib.h"
 
 struct list* newList();
@@ -125,6 +126,7 @@ single(int n)
 {
 	struct list *lst = newList();
 	unshiftList(n, lst);
+	return lst;
 }
 
 void

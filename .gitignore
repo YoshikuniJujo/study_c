@@ -1,1 +1,4 @@
-quickSort/listLib
+/quickSort/listLib
+/quickSort/quickSort
+_hake/
+*.o

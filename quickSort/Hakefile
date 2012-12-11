@@ -1,0 +1,18 @@
+import Development.Hake
+import Development.Hake.FunSetRaw
+
+hake_rules = [
+	dflt [ "quickSort" ]
+	,
+	file [ "quickSort" ] [ "quickSort.o", "listLib.o" ] $ \t ss ->
+		[ [ "gcc", "-Wall", "-o", t] ++ ss ]
+	,
+	rule ".o" ".c" $ \_ (s : _) -> [ [ "gcc", "-Wall", "-c", s ] ]
+ ] `addDeps` [
+	("listLib.o", ["listLib.h"])
+	,
+	("quickSort.o", ["listLib.h"])
+ ]
+
+
+main = hake hake_rules
